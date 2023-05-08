@@ -1,46 +1,14 @@
 <div [ngStyle]="{'display':'flex','flex-direction':'row'}">
-<app-left-nav-bar [menu]="menu" ></app-left-nav-bar>
+  <app-left-nav-bar ></app-left-nav-bar>
 
   <div>
-<app-header [siteName] = "siteName"
-            [user] = "user"
-            (event)="helloWorld()">
-</app-header>
+    <app-header [siteName] = "siteName"
+                [user] = "user">
+    </app-header>
 
-<div [ngStyle]="{'margin-left':'50px'}">
-  <button (click)="changeView()" *ngIf="cards">Список</button>
-  <button (click)="changeView()" *ngIf="!cards">Карточки</button>
-  <div *ngIf="cards;else list" [ngStyle]="{'display':'flex','flex-direction':'row'}">
-    <div *ngFor="let item of data" [ngStyle]="{'margin-right':'50px'}">
-      <div *ngIf = item.display>
-        <h3>{{item.name}}</h3>
-        <img [ngStyle]="{'width':'50px','height':'50px'}" src="{{item.img}}">
-        <div>{{item.description}}</div>
-        <div>Cкладність: {{item.complexity}}</div>
-        <ng-container [ngSwitch]="item.type">
-          <div *ngSwitchCase="'Math'">Математика</div>
-          <div *ngSwitchCase="'Ukrainian'">Українська</div>
-        </ng-container>
-    </div>
+    <div [ngStyle]="{'margin-left':'50px'}">
+      <router-outlet></router-outlet>
     </div>
   </div>
-  <ng-template #list>
-    <ul [ngStyle]="{'list-style-type':'none'}">
-      <li *ngFor="let item of data">
-        <div *ngIf = item.display>
-          <h3>{{item.name}}</h3>
-          <img [ngStyle]="{'width':'50px','height':'50px'}" src="{{item.img}}">
-          <div>{{item.description}}</div>
-          <div>Cкладність: {{item.complexity}}</div>
-          <ng-container [ngSwitch]="item.type">
-            <div *ngSwitchCase="'Math'">Математика</div>
-            <div *ngSwitchCase="'Ukrainian'">Українська</div>
-          </ng-container>
-        </div>
-      </li>
-    </ul>
-  </ng-template>
 </div>
-  </div>
-</div>
-<app-footer [menu]="menu" ></app-footer>
+<app-footer></app-footer>

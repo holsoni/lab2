@@ -1,0 +1,42 @@
+.user-info {
+  background-color: pink;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.user-info h2 {
+  margin-top: 0;
+}
+
+.user-info p {
+  margin-bottom: 0;
+}
+
+.user-info .id {
+  color: lightpink;
+}
+
+.user-info .name {
+  color: deeppink;
+}
+
+.user-info .lastname {
+  color: hotpink;
+}
+
+.user-info .date-of-birth {
+  color: pink;
+}
+
+.user-info .salary {
+  color: fuchsia;
+}
+
+.user-info .working-hours {
+  color: mediumvioletred;
+}

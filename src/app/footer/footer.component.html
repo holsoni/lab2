@@ -4,8 +4,17 @@
   </div>
 
   <div [ngStyle]="{'display':'flex','flow-direction':'row'}">
-    <div [ngStyle]="{'padding-right':'15px'}" *ngFor="let item of menu">
-      <a (click)="activeMenu(item.label)" [ngClass]="{'activeMenu':item.active}">{{item.label}}</a>
-  </div>
+
+    <div [ngStyle]="{'padding-right':'15px'}">
+      <a routerLink="/home" routerLinkActive="activeMenu" >Головна сторінка</a></div>
+    <div [ngStyle]="{'padding-right':'15px'}">
+    <a routerLink="/math" routerLinkActive="activeMenu" >Математика</a></div>
+    <div [ngStyle]="{'padding-right':'15px'}">
+    <a routerLink="/ukrainian" routerLinkActive="activeMenu" >Українська</a></div>
+    <div [ngStyle]="{'padding-right':'15px'}">
+    <a routerLink="/materials" routerLinkActive="activeMenu" >Матеріали</a></div>
+    <div [ngStyle]="{'padding-right':'15px'}">
+    <a [routerLink]="['/blog/1']" routerLinkActive="activeMenu" >Блог</a></div>
+
   </div>
 </footer>

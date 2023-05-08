@@ -14,11 +14,14 @@ footer {
 
 footer a {
   color: white;
+  text-decoration-line: none;
+
 }
 
 
 .activeMenu{
-  color:pink;
+  color: #de8491;
   font-weight: bold;
+  background-color: #dddddd;
   text-decoration-line: underline;
 }

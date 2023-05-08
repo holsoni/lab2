@@ -1,23 +1,100 @@
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Lastname</th>
-    <th>Date of Birth</th>
-    <th>Salary</th>
-    <th>Working Hours</th>
-  </tr>
-  </thead>
-  <tbody>
+<div fxLayout="column"  fxFlex="70">
+  <h2>Create User</h2>
+  <form fxLayout="column" [formGroup]="userForm" (ngSubmit)="onSubmit()" fxFlex="70">
+    <div fxLayout="row" fxLayoutGap="10px">
+      <mat-form-field fxFlex="50">
+        <input matInput placeholder="Ім'я" formControlName="name">
+        <mat-error *ngIf="userForm.controls.name.invalid && (userForm.controls.name.dirty || userForm.controls.name.touched)">
+          Ім'я обов'язкове
+        </mat-error>
+      </mat-form-field>
 
-  <tr *ngFor="let user of users">
-    <td [routerLink]="['/blog',user.id]">{{user.id}}</td>
-    <td>{{user.name}}</td>
-    <td>{{user.lastname}}</td>
-    <td>{{user.dateOfBirth | date:'dd/MM/yyyy'}}</td>
-    <td>{{user.salary | currency:'UAH'}}</td>
-    <td>{{user.workingHours | number}}</td>
-  </tr>
-  </tbody>
-</table>
+      <mat-form-field fxFlex="50">
+        <input matInput placeholder="Прізвище" formControlName="lastname">
+        <mat-error *ngIf="userForm.controls.lastname.invalid && (userForm.controls.lastname.dirty || userForm.controls.lastname.touched)">
+          Прізвище обов'язкове
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <mat-form-field fxFlex="50">
+        <mat-label>Тип</mat-label>
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let type of types" value="{{type}}">{{type}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="50">
+        <input matInput placeholder="Електронна пошта" formControlName="email">
+        <mat-error *ngIf="userForm.controls.email.invalid && (userForm.controls.email.dirty || userForm.controls.email.touched)">
+          <span *ngIf="userForm.controls.email.errors.required">Пошта обов'язкова</span>
+          <span *ngIf="userForm.controls.email.errors.pattern">Невірний формат</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <mat-form-field fxFlex="50">
+        <input matInput type="password" placeholder="Пароль" formControlName="password">
+        <mat-error *ngIf="userForm.controls.password.invalid && (userForm.controls.password.dirty || userForm.controls.password.touched)">
+          <span *ngIf="userForm.controls.password.errors.required">Пароль обов'язковий</span>
+          <span *ngIf="userForm.controls.password.errors.minLength">Пароль повинен бути більший 8 символів</span>
+          <span *ngIf="userForm.controls.password.errors.pattern">Пароль повинен пістити одну велику, одну маленьку літери, одну цифру та спеціальий знак</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="50">
+        <input matInput type="password" placeholder="Підтвердьте пароль" formControlName="confirmPassword">
+        <mat-error *ngIf="userForm.controls.confirmPassword.invalid && (userForm.controls.confirmPassword.dirty || userForm.controls.confirmPassword.touched)">
+          <span *ngIf="userForm.controls.confirmPassword.errors.required">Підтвердження паролю є обов'язковим</span>
+          <span *ngIf="userForm.errors?.['passwordNotConfirmed']">Паролі не співпадають</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <div fxLayout="column" fxLayoutAlign="center center" formArrayName="subjects" class="subjects" >
+        <div class="subject-buttons" >
+          <mat-label>Предмети</mat-label>
+          <button mat-button color="red" type="button" (click)="addSubject()">+</button>
+        </div>
+        <div fxFlexFill *ngFor="let subject of subjects.controls; let i = index">
+          <div fxFlexFill>
+            <mat-form-field fxFlex="95" >
+              <input matInput type="text" id="subj-{{i}}" [formControlName]="i" placeholder="Предмет  {{i + 1}}">
+            </mat-form-field>
+            <button mat-mini-fab matTooltip="Primary" color="#647556FF" (click)="removeSubject(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+      <div>
+      <mat-form-field fxFlex="100">
+        <textarea matInput placeholder="Опис" formControlName="description"></textarea>
+      </mat-form-field>
+      </div>
+      <div>
+            <mat-label>Sex: </mat-label>
+            <mat-checkbox value="male" >Чоловік</mat-checkbox>
+            <mat-checkbox value="female" >Жінка</mat-checkbox>
+            <mat-checkbox value="other" >Інщі</mat-checkbox>
+      </div>
+
+
+        <mat-form-field fxFlex="50">
+        <input matInput type="text" placeholder="Телефон" formControlName="phone">
+        <mat-error *ngIf="userForm.controls.phone.invalid && (userForm.controls.phone.dirty || userForm.controls.phone.touched)">
+          <span *ngIf="userForm.controls.phone.errors.required">Телефон обов'язковий</span>
+          <span *ngIf="userForm.controls.phone.errors.pattern">Невірний формат </span>
+        </mat-error>
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Підтвердити</button>
+      </div>
+  </form>
+</div>

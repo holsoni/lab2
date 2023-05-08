@@ -1,29 +1,5 @@
-<div class="user-info">
-<h1>User Information</h1>
-<table>
-  <tr>
-    <th>ID</th>
-    <td>{{ user.id }}</td>
-  </tr>
-  <tr>
-    <th>Name</th>
-    <td>{{ user.name }}</td>
-  </tr>
-  <tr>
-    <th>Lastname</th>
-    <td>{{ user.lastname }}</td>
-  </tr>
-  <tr>
-    <th>Date of Birth</th>
-    <td>{{ user.dateOfBirth | date :'dd/MM/yyyy'}}</td>
-  </tr>
-  <tr>
-    <th>Salary</th>
-    <td>{{ user.salary | currency:'UAH' }}</td>
-  </tr>
-  <tr>
-    <th>Working Hours</th>
-    <td>{{ user.workingHours|salary }}</td>
-  </tr>
-</table>
-</div>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+  <mat-tab label="First">Content 1</mat-tab>
+  <mat-tab label="Second">Content 2</mat-tab>
+  <mat-tab label="Third">Content 3</mat-tab>
+</mat-tab-group>

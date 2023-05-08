@@ -1,9 +1,9 @@
-<footer [ngStyle]="{'display':'flex','align-content':'center','justify-content': 'space-around'}" >
+<footer fxLayout="row" fxLayoutAlign="space-between center" >
   <div>
     <p>&copy; 2023 FaynoZNO. All rights reserved.</p>
   </div>
 
-  <div [ngStyle]="{'display':'flex','flow-direction':'row'}">
+  <div  fxLayout="row" fxLayout.lt-sm="column">
 
     <div [ngStyle]="{'padding-right':'15px'}">
       <a routerLink="/home" routerLinkActive="activeMenu" >Головна сторінка</a></div>

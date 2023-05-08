@@ -1,11 +1,10 @@
-<div [ngStyle]="{'display':'flex','flex-direction':'row'}">
+<div fxLayout = 'row' fxLayout.lt-sm="column">
   <app-left-nav-bar ></app-left-nav-bar>
 
-  <div>
-    <app-header [siteName] = "siteName"
+  <div fxFlex="100">
+    <app-header  [siteName] = "siteName"
                 [user] = "user">
     </app-header>
-
     <div [ngStyle]="{'margin-left':'50px'}">
       <router-outlet></router-outlet>
     </div>

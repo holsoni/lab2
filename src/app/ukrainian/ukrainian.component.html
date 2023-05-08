@@ -1,1 +1,16 @@
-<p>ukrainian works!</p>
+<table mat-table [dataSource]="rules">
+  <ng-container matColumnDef="number">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let rule">{{ rule.number }}</td>
+  </ng-container>
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Назва правила</th>
+    <td mat-cell *matCellDef="let rule">{{ rule.title }}</td>
+  </ng-container>
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Опис</th>
+    <td mat-cell *matCellDef="let rule">{{ rule.description }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['number', 'title', 'description']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['number', 'title', 'description']"></tr>
+</table>

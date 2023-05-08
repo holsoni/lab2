@@ -1,9 +1,7 @@
-<div class="show-menu">
-  <ul>
-    <li routerLink="/home" routerLinkActive="activeMenu" >Головна сторінка</li>
-    <li routerLink="/math" routerLinkActive="activeMenu" >Математика</li>
-    <li routerLink="/ukrainian" routerLinkActive="activeMenu" >Українська</li>
-    <li routerLink="/materials" routerLinkActive="activeMenu" >Матеріали</li>
-    <li [routerLink]="['/blog/1']" routerLinkActive="activeMenu" >Блог</li>
-  </ul>
+<div class="show-menu" fxLayout.lt-sm="row" fxFlex.lt-sm="100">
+    <div routerLink="/home" routerLinkActive="activeMenu" >Головна сторінка</div>
+    <div routerLink="/math" routerLinkActive="activeMenu" >Математика</div>
+    <div routerLink="/ukrainian" routerLinkActive="activeMenu" >Українська</div>
+    <div routerLink="/materials" routerLinkActive="activeMenu" >Матеріали</div>
+    <div [routerLink]="['/blog/1']" routerLinkActive="activeMenu" >Блог</div>
 </div>

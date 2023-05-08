@@ -1,0 +1,5 @@
+<div class="show-menu">
+  <ul>
+    <li (click)="activeMenu(item.label)" [ngClass]="{'activeMenu':item.active}" *ngFor="let item of menu">{{item.label}}</li>
+  </ul>
+</div>

@@ -1,0 +1,11 @@
+<footer [ngStyle]="{'display':'flex','align-content':'center','justify-content': 'space-around'}" >
+  <div>
+    <p>&copy; 2023 FaynoZNO. All rights reserved.</p>
+  </div>
+
+  <div [ngStyle]="{'display':'flex','flow-direction':'row'}">
+    <div [ngStyle]="{'padding-right':'15px'}" *ngFor="let item of menu">
+      <a (click)="activeMenu(item.label)" [ngClass]="{'activeMenu':item.active}">{{item.label}}</a>
+  </div>
+  </div>
+</footer>

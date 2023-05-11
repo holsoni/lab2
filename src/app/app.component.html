@@ -6,7 +6,9 @@
             [user] = "user"
             (event)="helloWorld()">
 </app-header>
-
+<div *ngIf="showMessage" [ngStyle]="{'font-weight':'38px','color':'red'}">
+  Hello World!
+</div>
 <div [ngStyle]="{'margin-left':'50px'}">
   <button (click)="changeView()" *ngIf="cards">Список</button>
   <button (click)="changeView()" *ngIf="!cards">Карточки</button>

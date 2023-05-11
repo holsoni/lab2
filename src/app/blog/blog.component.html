@@ -15,15 +15,15 @@
   </tr>
   <tr>
     <th>Date of Birth</th>
-    <td>{{ user.dateOfBirth | date :'dd/MM/yyyy'}}</td>
+    <td>{{ user.dateOfBirth | date :'dd.MM.yyyy'}}</td>
   </tr>
   <tr>
     <th>Salary</th>
-    <td>{{ user.salary | currency:'UAH' }}</td>
+    <td>{{ user.salary | salary}}</td>
   </tr>
   <tr>
     <th>Working Hours</th>
-    <td>{{ user.workingHours|salary }}</td>
+    <td>{{ user.workingHours }}</td>
   </tr>
 </table>
 </div>

@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit{
       lastname: ['Прізвище', Validators.required],
       type: [''],
       email: ['email@gm.com', [Validators.required, Validators.email]],
-      password: ['Asd123.', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};:"\\|,.<>\\/?]).+$')]],
-      confirmPassword: ['Asd123.', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};:"\\|,.<>\\/?]).+$')]],
+      password: ['Qwe12.', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};:"\\|,.<>\\/?]).+$')]],
+      confirmPassword: ['Qwe12.', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};:"\\|,.<>\\/?]).+$')]],
       subjects: this.fb.array([]),
       description: '',
       sex: '',
@@ -49,8 +49,7 @@ export class HomeComponent implements OnInit{
     let users = JSON.parse(localStorage.getItem("users") || "[]");
     // @ts-ignore
     this.users.push(user);
-    localStorage.setItem('users',JSON.stringify(this.users));
-    console.log(localStorage.getItem('users'));
+    console.log(this.users);
     this.userForm.reset();
   }
 
